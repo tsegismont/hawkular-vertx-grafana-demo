@@ -1,1 +1,0 @@
-# hawkular-vertx-grafana-demo

@@ -1,0 +1,33 @@
+= hawkular-vertx-grafana-demo
+
+This project shows how to use Hawkular to:
+
+- store a metric collected in a Vert.x application
+- display the metric with Grafana or Hawkular Charts
+- receive an alert when the metric exceeds a threshold
+
+== Download Hawkular
+
+This will download an all-in-one package (Metrics+Alerts+Cassandra), which is quite useful for development.
+
+[source,bash]
+----
+curl http://download.jboss.org/hawkular/hawkular/1.0.0.Alpha11/hawkular-dist-1.0.0.Alpha11.tar.gz | tar xz
+----
+
+== Run
+
+In the same directory as before:
+
+[source,bash]
+----
+cd hawkular-1.0.0.Alpha11/bin
+./standalone.sh
+----
+
+== Register a new user
+
+Browse to http://localhost:8080 And click the 'Register' button.
+
+In this demo we will use the 'admin' user with 'pa55,Word' password.
+
