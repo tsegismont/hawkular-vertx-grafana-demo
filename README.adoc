@@ -47,7 +47,19 @@ With build Alpha 11, the database name must be the persona ID. You can get it wi
 curl --basic -u admin:pa55,Word http://localhost:8080/hawkular/accounts/personas/current
 ----
 
-Eventually, configure Keycloak to enable CORS (otherwise Grafana will not be able to connect to Metrics).
+Eventually, configure Keycloak to allow the 'http://localhost:3000' origin (otherwise Grafana will not be able to connect to Metrics).
+
+== Setup the webapp
+
+Get the dependencies with Bower:
+
+[source,bash]
+----
+cd webapp/webroot
+bower install
+----
+
+Configure Keycloak to allow the 'http://localhost:8181' origin.
 
 == Start the webapp
 

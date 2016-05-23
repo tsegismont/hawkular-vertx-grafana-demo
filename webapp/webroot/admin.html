@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="souvenirsApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="libs/bootswatch-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/jquery-ui/themes/base/jquery-ui.min.css">
+  <link rel="stylesheet" href="libs/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="libs/hawkular-charts/css/hawkular-charts.css">
+  <link rel="stylesheet" href="css/souvenirs.css">
+
+  <script src="libs/jquery/dist/jquery.js"></script>
+  <script src="libs/jquery-ui/jquery-ui.js"></script>
+  <script src="libs/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="libs/angular/angular.js"></script>
+  <script src="libs/d3/d3.js" charset="utf-8"></script>
+  <script src="libs/d3-tip/index.js" charset="utf-8"></script>
+  <script src="libs/moment/moment.js"></script>
+  <script src="libs/hawkular-charts/hawkular-charts.js"></script>
+  <script src="libs/lodash/lodash.js"></script>
+  <script src="js/souvenirs.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <span class="navbar-brand">Souvenirs</span>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="boutique.html">Boutique</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="admin.html">Admin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h2>Statistiques</h2>
+
+  <div ng-controller="ChartCtrl">
+    <div class="form-group">
+      <label for="metricType">Type de métrique</label>
+      <select id="metricType" class="form-control" ng-model="metricType" ng-change="getMetricNames()">
+        <option value="gauge">Jauge</option>
+        <option value="counter">Compteur</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="metricName">Nom de la métrique</label>
+      <select id="metricName" class="form-control" ng-model="metricName">
+        <option ng-repeat="metric in metrics">{{metric}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="start">Début</label>
+      <input id="start" type="datetime" class="form-control ui-datetime" ng-model="start">
+    </div>
+    <div class="form-group">
+      <label for="end">Fin</label>
+      <input id="end" type="datetime" class="form-control ui-datetime" ng-model="end">
+    </div>
+    <div>
+      <button class="btn btn-primary" ng-click="update()">Update</button>
+      <button class="btn btn-default" ng-click="reset()">Reset</button>
+    </div>
+
+    <div class="chartWrapper">
+      <hawkular-chart ng-show="hasData()" data="chartData" chart-height="250"></hawkular-chart>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "souvenirs-client",
+  "authors": [
+    "Thomas Segismont"
+  ],
+  "dependencies": {
+    "bootstrap": "3.3.5",
+    "bootswatch-dist": "3.3.5-cerulean",
+    "angular": "1.4.7",
+    "hawkular-charts": "0.5.23",
+    "jquery-ui": "1.11.4",
+    "jqueryui-timepicker-addon": "1.6.1",
+    "lodash": "3.10.1"
+  }
+}
