@@ -27,7 +27,7 @@ public class WebApp {
     HawkularServerOptions admin = new HawkularServerOptions()
       .setId("admin")
       .setSecret("pa55,Word")
-      .setPersona("32843b67-527e-4f03-a4f5-ea328194c61f");
+      .setPersona("");
     VertxHawkularOptions metricsOptions = new VertxHawkularOptions()
       .setEnabled(true)
       .setServerType(ServerType.HAWKULAR)
