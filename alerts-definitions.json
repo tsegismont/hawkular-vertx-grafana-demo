@@ -1,0 +1,46 @@
+{
+  "triggers":[
+    {
+      "trigger":{
+        "id": "simple-trigger",
+        "name": "Simple Trigger",
+        "description": "Simple threshold Trigger",
+        "severity": "HIGH",
+        "enabled": true,
+        "autoResolve": true,
+        "autoResolveAlerts": true,
+        "actions":[
+          {
+            "actionPlugin": "email",
+            "actionId": "notify-admins"
+          }
+        ]
+      },
+      "conditions":[
+        {
+          "triggerMode": "FIRING",
+          "type": "threshold",
+          "dataId": "app.souvenirs.likes",
+          "operator": "GT",
+          "threshold": 10
+        },
+        {
+          "triggerMode": "AUTORESOLVE",
+          "type": "threshold",
+          "dataId": "app.souvenirs.likes",
+          "operator": "LT",
+          "threshold": 10
+        }
+      ]
+    }
+  ],
+  "actions":[
+    {
+      "actionPlugin": "email",
+      "actionId": "notify-admins",
+      "properties": {
+        "to": "root@localhost"
+      }
+    }
+  ]
+}

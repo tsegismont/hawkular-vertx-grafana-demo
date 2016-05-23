@@ -73,3 +73,12 @@ mvn clean package exec:exec@run-app
 
 And then browse to http://localhost:8181
 
+== Import Alert Definitions
+
+In the repository directory:
+
+[source,bash]
+----
+curl -v -X POST --basic -u admin:pa55,Word -H "Content-Type: application/json" http://localhost:8080/hawkular/alerts/import/all -d @alerts-definitions.json
+----
+
