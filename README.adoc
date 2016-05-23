@@ -31,3 +31,33 @@ Browse to http://localhost:8080 And click the 'Register' button.
 
 In this demo we will use the 'admin' user with 'pa55,Word' password.
 
+== Start Grafana
+
+Start Grafana with Docker:
+
+[source,bash]
+----
+sudo docker run -i -p 3000:3000 grafana/grafana:2.6.0
+----
+
+With build Alpha 11, the database name must be the persona ID. You can get it with:
+
+[source,bash]
+----
+curl --basic -u admin:pa55,Word http://localhost:8080/hawkular/accounts/personas/current
+----
+
+Eventually, configure Keycloak to enable CORS (otherwise Grafana will not be able to connect to Metrics).
+
+== Start the webapp
+
+In the directory where you cloned the repository:
+
+[source,bash]
+----
+cd webapp
+mvn clean package exec:exec@run-app
+----
+
+And then browse to http://localhost:8181
+
